@@ -38,7 +38,7 @@ jwt = JWTManager(app)
 # identity when creating JWTs and converts it to a JSON serializable format.
 @jwt.user_identity_loader
 def user_identity_lookup(user):
-    return user.username
+    return user.email
 
 
 # Register a callback function that loads a user from your database whenever
@@ -48,7 +48,7 @@ def user_identity_lookup(user):
 @jwt.user_lookup_loader
 def user_lookup_callback(_jwt_header, jwt_data):
     identity = jwt_data["sub"]
-    return User.query.filter_by(username=identity).first()
+    return User.query.filter_by(email=identity).first()
 
 
 setup_admin(app)

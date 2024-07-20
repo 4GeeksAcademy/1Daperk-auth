@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import  useGlobalReducer  from "../hooks/useGlobalReducer"; // Assuming this hook exists
+import  useGlobalReducer  from "../hooks/useGlobalReducer";
 
 
 const Private = () => {
-    const { dispatch, store } = useGlobalReducer(); // Assuming useGlobalReducer provides a dispatch function and store
+    const { dispatch, store } = useGlobalReducer(); 
     const { theid } = useParams();
     const [bgColor, setBgColor] = useState("#000000");
 

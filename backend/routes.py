@@ -74,7 +74,7 @@ def login_user():
             app.logger.error("Invalid email or password")
             return jsonify({"message": "Email or password invalid"}), 400
 
-        token = create_access_token(identity=user.id)
+        token = create_access_token(identity=user)
         response_body = {
             "token": token,
             "user": user.serialize()
@@ -85,24 +85,7 @@ def login_user():
         app.logger.error(f"Error during login: {e}")
         return jsonify({"message": "Internal server error"}), 500
 
-#### LOGIN WITH A JWT REQUIRED -- USERS can see other users info
-#[GET] /user/<int:id> Get user
-# @api.route("/user/<int:id>", methods=['GET'])
-# @jwt_required()
-# def get_user_data(id):
-#     user = User.query.get(id)
-#     if not user:
-#         return jsonify({"message": "User not found"}), 400
-#     return jsonify(
-#         {
-#             "user": {
-#                 "email": user.email,
-#                 "password": user.password,
-#                 #"ig_password": user.ig_password,
-#                 "is_active": user.is_active
-#             }
-#         }
-#     ), 200
+
 
 ## PERSONAL PRIVATE VIEW --- USERS only can see theirs info
 #[GET] /user/id Get user ig

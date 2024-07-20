@@ -13,7 +13,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('https://didactic-acorn-r4766ggwwxrvc5g54-3001.app.github.dev/api/token', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/token`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
