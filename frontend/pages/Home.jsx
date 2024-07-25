@@ -12,7 +12,7 @@ export const Home = () => {
   const handleSignUp = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('https://didactic-acorn-r4766ggwwxrvc5g54-3001.app.github.dev/api/user', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,11 +26,11 @@ export const Home = () => {
         throw new Error(data.message || 'Signup failed');
       }
 
-      console.log(data.message); // Optionally log the response message
+      console.log(data.message); 
       navigate("/login"); // Redirect to login page after successful signup
     } catch (error) {
       console.error('Error:', error.message);
-      // Handle signup error, show message to user, etc.
+      // Handle signup error, show message to user.
     }
   }
 

@@ -84,7 +84,7 @@ const Login = () => {
 };
 
 Login.propTypes = {
-  match: PropTypes.object // Adjust according to your specific needs
+  match: PropTypes.object 
 };
 
 export default Login;
